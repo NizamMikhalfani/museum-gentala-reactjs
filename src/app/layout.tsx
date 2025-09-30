@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import Navbar from "../components/navbar";
+import LoadingWrapper from "../components/loadingwrapper"; // bungkus client
 import "./globals.css";
 
-export const metadata = {
-  title: "Museum Menara Gentala Arasy",
-  description: "Website museum sederhana dengan Next.js + Tailwind",
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Museum Nusantara",
+  description: "Website Museum Nusantara",
 };
 
 export default function RootLayout({
@@ -11,40 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id">
-      <body className="font-sans">
-        {/* Navbar */}
-        <nav className="fixed w-full top-0 z-50 bg-blue-600 text-white shadow">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="flex justify-between items-center h-16">
-              <div className="flex items-center space-x-2">
-                <span className="text-2xl">🏛️</span>
-                <a className="font-bold text-lg" href="/" >Museum Nusantara</a>
-              </div>
-              <div className="hidden md:flex space-x-8">
-                <a href="/tentang">
-                  Tentang
-                </a>
-                <a href="/galeri">
-                  Galeri
-                </a>
-                <a href="/kontak">
-                  Kontak
-                </a>
-              </div>
-            </div>
-          </div>
-        </nav>
-        
-        
-
-        {/* Konten Halaman */}
-        <main className="pt-16">{children}</main>
-
-        {/* Footer */}
-        <footer className="py-6 bg-gray-900 text-gray-400 text-center mt-20">
-          <p>© 2025 Museum Nusantara. Semua Hak Dilindungi.</p>
-        </footer>
+    <html lang="en">
+      <body className={inter.className}>
+        <LoadingWrapper>
+          <Navbar enableScrollEffect={true} />
+          <main className="pt-16">{children}</main>
+          <footer className="py-6 bg-gray-900 text-gray-400 text-center mt-20">
+            <p>© 2025 Nizam Mikhalfani</p>
+          </footer>
+        </LoadingWrapper>
       </body>
     </html>
   );
