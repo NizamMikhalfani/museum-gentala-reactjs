@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Museum Nusantara",
   description: "Website Museum Nusantara",
+    icons: {
+    icon: "/images/Menara.png", // PNG langsung
+  },
 };
 
 export default function RootLayout({
