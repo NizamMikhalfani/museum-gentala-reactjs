@@ -1,0 +1,6 @@
+{
+  "events": [
+    { "id": 1, "title": "Art Exhibition", "date": "2025-10-15" },
+    { "id": 2, "title": "History Lecture", "date": "2025-11-01" }
+  ]
+}

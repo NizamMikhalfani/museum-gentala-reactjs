@@ -88,7 +88,7 @@ export default function Home() {
             pameran terbaru.
           </p>
           <a
-            href="mailto:info@museumnusantara.id"
+            href="mailto:nizammikhalfani2@upi.edu"
             className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700"
           >
             Email Kami

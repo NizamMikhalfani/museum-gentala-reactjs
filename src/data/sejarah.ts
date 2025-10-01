@@ -1,0 +1,1 @@
+export const history = `This is a sample history data about the museum.`;

@@ -1,0 +1,6 @@
+{
+  "collections": [
+    { "id": 1, "name": "Ancient Artifacts", "description": "Artifacts from ancient civilizations." },
+    { "id": 2, "name": "Modern Art", "description": "Art from the 20th and 21st centuries." }
+  ]
+}
