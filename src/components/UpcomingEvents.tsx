@@ -1,5 +1,13 @@
 "use client";
-import { museumEvents, type MuseumEvent } from "@/lib/data";
+import eventsData from "@/data/events.json";
+
+interface MuseumEvent {
+  id: string;
+  title: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+}
 
 function formatRange(start: string, end: string) {
   const s = new Date(start);
@@ -12,7 +20,7 @@ export default function UpcomingEvents() {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const upcoming: MuseumEvent[] = museumEvents
+  const upcoming: MuseumEvent[] = (eventsData as unknown as MuseumEvent[])
     .filter((ev) => new Date(ev.startDate) >= today)
     .sort((a, b) => +new Date(a.startDate) - +new Date(b.startDate))
     .slice(0, 2);

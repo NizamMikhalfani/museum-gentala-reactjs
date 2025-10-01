@@ -1,6 +1,16 @@
-{
-  "collections": [
-    { "id": 1, "name": "Ancient Artifacts", "description": "Artifacts from ancient civilizations." },
-    { "id": 2, "name": "Modern Art", "description": "Art from the 20th and 21st centuries." }
-  ]
-}
+[
+  {
+    "id": "koleksi-01",
+    "title": "Potret Diri & Topeng",
+    "artist": "Affandi",
+    "year": 1961,
+    "imageUrl": "/images/gallery/affandi-self-portrait.jpg"
+  },
+  {
+    "id": "koleksi-02",
+    "title": "Perburuan Banteng",
+    "artist": "Raden Saleh",
+    "year": 1855,
+    "imageUrl": "/images/gallery/raden-saleh-banteng.jpg"
+  }
+]

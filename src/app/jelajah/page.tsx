@@ -1,9 +1,11 @@
+import Viewer360 from "@/components/Viewer360";
+
 export default function JelajahPage() {
+  const imageUrlFromCloudinary =
+    "https://res.cloudinary.com/demo/image/upload/spherical/panorama.jpg";
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <h1 className="text-2xl font-bold text-gray-700">
-        Ini adalah halaman kosong
-      </h1>
+    <div className="w-full h-[calc(100vh-4rem-var(--footer-height,3rem))]">
+      <Viewer360 imageUrl={imageUrlFromCloudinary} />
     </div>
   );
 }

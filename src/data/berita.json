@@ -1,0 +1,16 @@
+[
+  {
+    "id": "news-01",
+    "title": "Pembukaan Pameran Seni Kontemporer",
+    "excerpt": "Museum menghadirkan pameran seni kontemporer terbaru dengan karya-karya seniman muda Indonesia.",
+    "imageUrl": "/images/gallery/affandi-self-portrait.jpg",
+    "href": "/berita/news-01"
+  },
+  {
+    "id": "news-02",
+    "title": "Workshop Edukasi Sejarah",
+    "excerpt": "Program edukasi sejarah untuk pelajar dengan sesi interaktif dan tur museum.",
+    "imageUrl": "/images/gallery/raden-saleh-banteng.jpg",
+    "href": "/berita/news-02"
+  }
+]

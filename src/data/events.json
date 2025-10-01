@@ -1,0 +1,16 @@
+[
+  {
+    "id": "event-01",
+    "title": "Pameran: The Sea is Barely Wrinkled",
+    "description": "Pameran tunggal oleh Kei Imazu.",
+    "startDate": "2025-05-24",
+    "endDate": "2025-10-05"
+  },
+  {
+    "id": "event-02",
+    "title": "Pameran: Your curious journey",
+    "description": "Sebuah perjalanan kuriositas oleh Olafur Eliasson.",
+    "startDate": "2025-11-29",
+    "endDate": "2026-04-12"
+  }
+]
