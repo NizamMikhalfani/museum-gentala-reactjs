@@ -1,42 +1,113 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import UpcomingEvents from "@/components/UpcomingEvents";
 import Link from "next/link";
 
 export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
+  // Simple carousel state
+  const images = useMemo(() => [
+    "/images/dummy.jpg",
+    "/images/Menara.png",
+  ], []);
+  const [idx, setIdx] = useState(0);
 
+  // Advance image every 6s
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+    const t = setInterval(() => setIdx((i) => (i + 1) % images.length), 6000);
+    return () => clearInterval(t);
+  }, [images.length]);
+
+  // Analyze brightness of current image and toggle body class for navbar contrast
+  const imgRef = useRef<HTMLImageElement | null>(null);
+  useEffect(() => {
+    const img = imgRef.current;
+    if (!img) return;
+
+    const analyze = () => {
+      try {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+        const w = (canvas.width = 50);
+        const h = (canvas.height = 50);
+        ctx.drawImage(img, 0, 0, w, h);
+        const { data } = ctx.getImageData(0, 0, w, h);
+        let totalL = 0;
+        for (let i = 0; i < data.length; i += 4) {
+          const r = data[i], g = data[i + 1], b = data[i + 2];
+          // Perceived luminance (sRGB)
+          const l = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+          totalL += l;
+        }
+        const avg = totalL / (data.length / 4);
+        const isLight = avg > 160; // threshold; tweak if needed
+        document.body.classList.remove("nav-contrast-dark", "nav-contrast-light");
+        document.body.classList.add(isLight ? "nav-contrast-light" : "nav-contrast-dark");
+      } catch {}
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    if (img.complete) analyze();
+    else img.onload = analyze;
+
+    return () => {
+      if (img) img.onload = null;
+    };
+  }, [idx]);
+
+  // Cleanup body class on unmount
+  useEffect(() => {
+    return () => {
+      document.body.classList.remove("nav-contrast-dark", "nav-contrast-light");
+    };
   }, []);
 
   return (
     <div className="font-sans">
+  {/* Navbar is rendered from layout via NavShell */}
 
-      {/* Hero Section */}
-      <section
-        id="beranda"
-        className="h-screen bg-cover bg-center flex items-center justify-center text-center relative"
-        style={{
-          backgroundImage: "url('/images/dummy.jpg')", // path gambar dari public/images
-        }}
-          >
-        <div className="relative z-10 text-white">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Selamat Datang di Museum Menara Gentala Arasy
-          </h1>
-          <p className="text-lg md:text-xl mb-6">
-            Menjelajahi sejarah dan budaya bangsa
-          </p>
-          <Link
-            href="/jelajah"
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg shadow-lg"
-          >
-            Jelajah
-          </Link>
+      {/* Hero Section with full-screen carousel background */}
+      <section id="beranda" className="relative h-screen w-full">
+        {/* Background images stacked, cross-fading */}
+        <div className="absolute inset-0 -z-10">
+          {images.map((src, i) => (
+            <img
+              key={src}
+              ref={i === idx ? imgRef : undefined}
+              src={src}
+              alt="Background hero"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+                i === idx ? "opacity-100" : "opacity-0"
+              }`}
+            />
+          ))}
+          {/* Optional dark overlay to improve contrast slightly */}
+          <div className="absolute inset-0 bg-black/20" />
+        </div>
+
+        {/* Foreground content */}
+        <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white drop-shadow">
+              Selamat Datang di Museum Menara Gentala Arasy
+            </h1>
+            <p className="text-lg md:text-xl mb-6 text-white/95">
+              Menjelajahi sejarah dan budaya bangsa
+            </p>
+            <Link
+              href="/jelajah"
+              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg shadow-lg text-white"
+            >
+              Jelajah
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Upcoming events section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">Akan Datang</h2>
+          <UpcomingEvents />
         </div>
       </section>
 

@@ -1,11 +1,11 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, PropsWithChildren } from "react";
 
 const ThemeContext = createContext({
   theme: "light",
   toggleTheme: () => {},
 });
 
-export const ThemeProvider: React.FC = ({ children }) => {
+export const ThemeProvider = ({ children }: PropsWithChildren) => {
   const [theme, setTheme] = useState("light");
 
   const toggleTheme = () => {

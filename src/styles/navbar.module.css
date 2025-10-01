@@ -1,6 +1,113 @@
-/* Dummy CSS for Navbar */
+/* styles/navbar.module.css */
+
 .navbar {
-  background-color: #333;
-  color: white;
-  padding: 1rem;
+  position: fixed; /* 1. Make the navbar stick to the top */
+  width: 100%;
+  top: 0;
+  z-index: 50;
+  background-color: #2c3e50; /* 3. Set a specific background color */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* 2. Add a subtle box-shadow */
+  transition: all 0.3s ease-in-out;
+}
+
+.container {
+  max-width: 80rem; /* 1280px */
+  margin: 0 auto;
+  padding: 0 1.5rem; /* px-6 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem; /* h-16 */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* space-x-2 */
+}
+
+.logoText {
+  font-weight: bold;
+  font-size: 1.125rem; /* text-lg */
+  color: #ecf0f1; /* 4. Set a contrasting font color */
+}
+
+.menu {
+  display: none; /* hidden */
+}
+
+@media (min-width: 768px) { /* md: */
+  .menu {
+    display: flex;
+    gap: 2rem; /* space-x-8 */
+  }
+}
+
+.menuLink {
+  color: #ecf0f1; /* 4. Set a contrasting font color */
+  text-decoration: none; /* 5. Remove the default underline */
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.menuLink:hover {
+  color: #ffffff; /* 6. Add a simple hover effect */
+}
+
+.menuLink::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #3498db; /* A nice blue for the underline */
+  transition: width 0.3s ease-in-out;
+}
+
+.menuLink:hover::after {
+  width: 100%;
+}
+
+/* Requested state classes */
+.navbar-base {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+}
+
+.navbar-solid {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #333333;
+}
+
+.navbar-transparent {
+  background-color: transparent;
+  box-shadow: none;
+  color: #ffffff;
+}
+
+/* Frosted glass state for top of landing page */
+.navbar-frosted {
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  color: #000000;
+}
+
+.menu-item {
+  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+.navbar-transparent .menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Subtle text shadow for better readability in frosted state */
+.navbar-frosted .menu-item-link {
+  text-shadow: 0px 1px 3px rgba(255, 255, 255, 0.4);
 }

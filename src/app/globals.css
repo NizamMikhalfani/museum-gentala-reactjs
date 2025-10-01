@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -5,22 +6,36 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #c0c0c0;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+}
+
+/* Navbar contrast control without touching the Navbar component */
+/* These only apply when navbar is transparent; when scrolled (bg-white), Navbar's own classes win */
+body.nav-contrast-dark nav.bg-transparent a,
+body.nav-contrast-dark nav.bg-transparent span {
+  color: #111827 !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.35);
+}
+
+body.nav-contrast-light nav.bg-transparent a,
+body.nav-contrast-light nav.bg-transparent span {
+  color: #111827 !important; /* gray-900 */
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35);
+}
+
+/* Ensure links look clean */
+nav a {
+  text-decoration: none;
 }

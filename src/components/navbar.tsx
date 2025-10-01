@@ -2,47 +2,48 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import styles from "@/styles/navbar.module.css";
 
 interface NavbarProps {
-  enableScrollEffect?: boolean; // bisa true/false
+  enableScrollEffect?: boolean;
+  isLandingPage?: boolean;
 }
 
-export default function Navbar({ enableScrollEffect = false }: NavbarProps) {
-  const [scrolled, setScrolled] = useState(false);
+export default function Navbar({ enableScrollEffect = true, isLandingPage = false }: NavbarProps) {
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    if (!enableScrollEffect) return;
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    if (!enableScrollEffect) {
+      setIsScrolled(false);
+      return;
+    }
+    const onScroll = () => setIsScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, [enableScrollEffect]);
 
-  // warna teks
-  const textColorClass =
-    scrolled && enableScrollEffect ? "text-gray-800" : "text-white";
+  const atTopLanding = isLandingPage && !isScrolled;
+  const textColorClass = atTopLanding ? "text-black" : "text-gray-800";
 
-      const menuItems = [
-    { name: "Beranda", href: "http://localhost:3000/" },
-    { name: "Tentang", href: "http://localhost:3000/tentang" },
-    { name: "Galeri", href: "http://localhost:3000/galeri" },
-    { name: "Kontak", href: "http://localhost:3000/kontak" },
+  const menuItems = [
+    { name: "Beranda", href: "/" },
+    { name: "Tentang", href: "/tentang" },
+    { name: "Galeri", href: "/galeri" },
+    { name: "Kontak", href: "/kontak" },
   ];
-
 
   return (
     <nav
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrolled && enableScrollEffect
-          ? "bg-white shadow-md"
-          : enableScrollEffect
-          ? "bg-transparent"
-          : "bg-blue-600 shadow"
-      }`}
+      className={[
+        styles["navbar-base"],
+        atTopLanding ? styles["navbar-frosted"] : styles["navbar-solid"],
+      ].join(" ")}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="http://localhost:3000/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2">
             <Image
               src="/logo/Menara.png"
               alt="Logo Museum Nusantara"
@@ -66,10 +67,14 @@ export default function Navbar({ enableScrollEffect = false }: NavbarProps) {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`relative transition-colors duration-300 group ${textColorClass}`}
+                className={`relative transition-colors duration-300 group ${textColorClass} ${styles["menu-item"]} ${styles["menu-item-link"]}`}
               >
                 {item.name}
-                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                <span
+                  className={`absolute left-0 bottom-0 w-0 h-[2px] transition-all duration-300 group-hover:w-full ${
+                    atTopLanding ? "bg-black" : "bg-blue-600"
+                  }`}
+                ></span>
               </Link>
             ))}
           </div>
