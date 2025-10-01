@@ -55,14 +55,6 @@ export default function Navbar({ enableScrollEffect = true, isLandingPage = fals
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
-            {/* Beranda */}
-            <Link
-              href="/"
-              className={`relative transition-colors duration-300 group ${textColorClass} ${styles["menu-item"]} ${styles["menu-item-link"]}`}
-            >
-              Beranda
-              <span className={`absolute left-0 bottom-0 w-0 h-[2px] transition-all duration-300 group-hover:w-full ${atTopLanding ? "bg-black" : "bg-blue-600"}`}></span>
-            </Link>
 
             {/* Tentang with Headless UI Dropdown */}
             <Dropdown

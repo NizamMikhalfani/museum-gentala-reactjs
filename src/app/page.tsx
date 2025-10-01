@@ -68,7 +68,7 @@ export default function Home() {
       {/* Hero Section with full-screen carousel background */}
       <section id="beranda" className="relative h-screen w-full">
         {/* Background images stacked, cross-fading */}
-        <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 -z-10 pointer-events-none">
           {images.map((src, i) => (
             <img
               key={src}

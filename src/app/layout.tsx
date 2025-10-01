@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import NavShell from "@/components/NavShell";
 import Footer from "@/components/Footer";
-import LoadingWrapper from "../components/loadingwrapper"; // bungkus client
+import LoadingWrapper from "../components/LoadingWrapper"; // bungkus client
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });

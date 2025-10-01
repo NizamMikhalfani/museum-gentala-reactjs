@@ -25,7 +25,7 @@ export default function Dropdown({ buttonLabel, items, className = '', buttonCla
               </svg>
             </MenuButton>
             <Transition as={Fragment} enter="transition ease-out duration-100" enterFrom="transform opacity-0 scale-95" enterTo="transform opacity-100 scale-100" leave="transition ease-in duration-75" leaveFrom="transform opacity-100 scale-100" leaveTo="transform opacity-0 scale-95">
-              <MenuItems anchor="bottom start" className="mt-2 w-48 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black/5 focus:outline-none">
+              <MenuItems anchor="bottom start" className="mt-2 w-48 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black/5 focus:outline-none z-50">
                 <div className="px-1 py-1">
                   {items.map((item) => (
                     <MenuItem key={item.href}>
