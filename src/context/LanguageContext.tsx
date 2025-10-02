@@ -2,7 +2,8 @@ import React, { createContext, useState, useContext, PropsWithChildren } from "r
 
 const LanguageContext = createContext({
   language: "en",
-  switchLanguage: (lang: string) => {},
+  // underscore to indicate it's intentionally unused in the default value
+  switchLanguage: (_lang: string) => {},
 });
 
 export const LanguageProvider = ({ children }: PropsWithChildren) => {

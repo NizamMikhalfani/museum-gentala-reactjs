@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface Artikel {
   id: string;
@@ -13,12 +14,15 @@ export default function BeritaCard({ artikel }: { artikel: Artikel }) {
     <article className="grid grid-cols-1 md:grid-cols-3 gap-4 border rounded-lg overflow-hidden bg-white shadow-sm">
       {/* Image */}
       <div className="md:col-span-1">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={artikel.imageUrl}
-          alt={artikel.title}
-          className="w-full h-48 md:h-full object-cover"
-        />
+        <div className="relative w-full h-48 md:h-full min-h-[12rem]">
+          <Image
+            src={artikel.imageUrl}
+            alt={artikel.title}
+            fill
+            sizes="(min-width: 768px) 33vw, 100vw"
+            className="object-cover"
+          />
+        </div>
       </div>
       {/* Content */}
       <div className="md:col-span-2 p-4 flex flex-col justify-between">

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
+    "@supabase/supabase-js": "^2.58.0",
     "cloudinary": "^2.7.0",
     "fast-average-color": "^9.5.0",
     "next": "15.5.3",

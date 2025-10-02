@@ -1,11 +1,13 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="border-t bg-white text-gray-700">
       <div className="max-w-7xl mx-auto px-6 py-8 grid gap-6 md:grid-cols-3 items-center">
         {/* Logos */}
         <div className="flex items-center gap-4">
-          <img src="/logo/Menara.png" alt="Kementerian Kebudayaan" className="h-10 w-10 object-contain" />
-          <img src="/logo/Menara.png" alt="Museum Nasional" className="h-10 w-10 object-contain" />
+          <Image src="/logo/Menara.png" alt="Kementerian Kebudayaan" width={40} height={40} className="object-contain" />
+          <Image src="/logo/Menara.png" alt="Museum Nasional" width={40} height={40} className="object-contain" />
         </div>
 
         {/* Address */}

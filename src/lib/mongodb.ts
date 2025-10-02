@@ -9,7 +9,6 @@ let clientPromise: Promise<MongoClient>;
 
 // Augment the Node global to store the Mongo client promise in dev without using any
 declare global {
-  // eslint-disable-next-line no-var
   var _mongoClientPromise: Promise<MongoClient> | undefined;
 }
 

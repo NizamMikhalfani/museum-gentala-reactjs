@@ -1,4 +1,5 @@
 import koleksiData from "@/data/koleksi.json";
+import Image from "next/image";
 
 interface KoleksiItem {
   id: string;
@@ -19,11 +20,14 @@ export default function GaleriPage() {
             key={item.id}
             className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition"
           >
-            <img
-              src={item.imageUrl}
-              alt={item.title}
-              className="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-300"
-            />
+            <div className="relative w-full h-64">
+              <Image
+                src={item.imageUrl}
+                alt={item.title}
+                fill
+                className="object-cover transform hover:scale-105 transition-transform duration-300"
+              />
+            </div>
             <div className="p-4 bg-white">
               <h2 className="text-lg font-semibold">{item.title}</h2>
               <p className="text-gray-600 text-sm">

@@ -1,7 +1,9 @@
 "use client";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState, useRef} from "react";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import Link from "next/link";
+import NextImage from "next/image";
+import Image from "next/image";
 
 export default function Home() {
   // Simple carousel state
@@ -25,24 +27,28 @@ export default function Home() {
 
     const analyze = () => {
       try {
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return;
-        const w = (canvas.width = 50);
-        const h = (canvas.height = 50);
-        ctx.drawImage(img, 0, 0, w, h);
-        const { data } = ctx.getImageData(0, 0, w, h);
-        let totalL = 0;
-        for (let i = 0; i < data.length; i += 4) {
-          const r = data[i], g = data[i + 1], b = data[i + 2];
-          // Perceived luminance (sRGB)
-          const l = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-          totalL += l;
-        }
-        const avg = totalL / (data.length / 4);
-        const isLight = avg > 160; // threshold; tweak if needed
-        document.body.classList.remove("nav-contrast-dark", "nav-contrast-light");
-        document.body.classList.add(isLight ? "nav-contrast-light" : "nav-contrast-dark");
+        const off = new window.Image();
+        off.crossOrigin = "anonymous";
+        off.onload = () => {
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d");
+          if (!ctx) return;
+          const w = (canvas.width = 50);
+          const h = (canvas.height = 50);
+          ctx.drawImage(off, 0, 0, w, h);
+          const { data } = ctx.getImageData(0, 0, w, h);
+          let totalL = 0;
+          for (let i = 0; i < data.length; i += 4) {
+            const r = data[i], g = data[i + 1], b = data[i + 2];
+            const l = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+            totalL += l;
+          }
+          const avg = totalL / (data.length / 4);
+          const isLight = avg > 160;
+          document.body.classList.remove("nav-contrast-dark", "nav-contrast-light");
+          document.body.classList.add(isLight ? "nav-contrast-light" : "nav-contrast-dark");
+        };
+        off.src = img.src;
       } catch {}
     };
 
@@ -72,7 +78,6 @@ export default function Home() {
           {images.map((src, i) => (
             <img
               key={src}
-              ref={i === idx ? imgRef : undefined}
               src={src}
               alt="Background hero"
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
