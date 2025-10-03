@@ -1,10 +1,16 @@
 import React, { createContext, useState, useContext, PropsWithChildren } from "react";
 
-const LanguageContext = createContext({
+type LanguageContextShape = {
+  language: string;
+  switchLanguage: (lang: string) => void;
+};
+
+const defaultValue: LanguageContextShape = {
   language: "en",
-  // underscore to indicate it's intentionally unused in the default value
-  switchLanguage: (_lang: string) => {},
-});
+  switchLanguage: () => {},
+};
+
+const LanguageContext = createContext<LanguageContextShape>(defaultValue);
 
 export const LanguageProvider = ({ children }: PropsWithChildren) => {
   const [language, setLanguage] = useState("en");

@@ -1,15 +1,18 @@
 "use client";
-import { useEffect, useMemo, useState, useRef} from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
+import Calendar from '@/components/Calendar';
 import UpcomingEvents from "@/components/UpcomingEvents";
 import Link from "next/link";
-import NextImage from "next/image";
 import Image from "next/image";
 
 export default function Home() {
   // Simple carousel state
   const images = useMemo(() => [
-    "/images/dummy.jpg",
-    "/images/Menara.png",
+    "/images/1_1280x720.jpg",
+    "/images/2_1920x1080.jpg",
+    "/images/3_1680x1050.jpg",
+    "/images/4_1920x1080.jpg",
+    "/images/5_1920x1200.jpg",
   ], []);
   const [idx, setIdx] = useState(0);
 
@@ -76,10 +79,11 @@ export default function Home() {
         {/* Background images stacked, cross-fading */}
         <div className="absolute inset-0 -z-10 pointer-events-none">
           {images.map((src, i) => (
-            <img
+            <Image
               key={src}
               src={src}
               alt="Background hero"
+              fill
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
                 i === idx ? "opacity-100" : "opacity-0"
               }`}
@@ -108,13 +112,16 @@ export default function Home() {
         </div>
       </section>
 
+      {/* calendar section */}
+      <div className="container mx-auto px-4">
+        <Calendar />
+      </div>
+
       {/* Upcoming events section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">Akan Datang</h2>
-          <UpcomingEvents />
-        </div>
-      </section>
+      <div className="container mx-auto px-4">
+        <h2 className="text-2xl font-bold mt-6 mb-4">Akan Datang</h2>
+        <UpcomingEvents />
+      </div>
 
       {/* Tentang Section */}
       <section id="tentang" className="py-20 bg-white">
@@ -140,15 +147,8 @@ export default function Home() {
               "https://images.unsplash.com/photo-1549887534-3db1bd59dcca",
               "https://images.unsplash.com/photo-1580136579312-94651dfd596d",
             ].map((src, idx) => (
-              <div
-                key={idx}
-                className="rounded-lg overflow-hidden shadow-lg group"
-              >
-                <img
-                  src={src}
-                  alt="Galeri"
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+              <div key={idx} className="rounded-lg overflow-hidden shadow-lg group relative h-64">
+                <Image src={src} alt="Galeri" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
             ))}
           </div>

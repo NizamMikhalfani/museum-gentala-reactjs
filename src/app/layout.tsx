@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import NavShell from "@/components/NavShell";
-import Footer from "@/components/Footer";
+import AppLayout from "@/components/AppLayout";
 import LoadingWrapper from "@/components/LoadingWrapper";
 import "./globals.css";
 
@@ -24,9 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} min-h-screen flex flex-col`}>
         <LoadingWrapper>
-          <NavShell />
-          <main className="flex-grow pt-16">{children}</main>
-          <Footer />
+          <AppLayout>{children}</AppLayout>
         </LoadingWrapper>
       </body>
     </html>

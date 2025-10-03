@@ -1,23 +1,37 @@
 [
   {
-    "id": "news-01",
-    "title": "Pembukaan Pameran Seni Kontemporer",
-    "excerpt": "Museum menghadirkan pameran seni kontemporer terbaru dengan karya-karya seniman muda Indonesia.",
-    "imageUrl": "/images/gallery/affandi-self-portrait.jpg",
-    "href": "/berita/news-01"
-  },
-  {
-    "id": "news-02",
-    "title": "Workshop Edukasi Sejarah",
-    "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos. Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos. Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos. Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos. Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
-    "imageUrl": "/images/gallery/raden-saleh-banteng.jpg",
-    "href": "/berita/news-02"
-  },
-  {
     "id": "news-03",
-    "title": "WLorem",
-    "excerpt": "Program edukasi sejarah untuk pelajar dengan sesi interaktif dan tur museum.",
-    "imageUrl": "/images/gallery/raden-saleh-banteng.jpg",
+    "title": "Kolaborasi Seni Rupa & Musik",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quidem.",
+    "imageUrl": "/src/images/berita/1.jpg",
     "href": "/berita/news-03"
+  },
+  {
+    "id": "news-04",
+    "title": "Pameran Fotografi Nusantara",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, molestias.",
+    "imageUrl": "/src/images/berita/2.jpg",
+    "href": "/berita/news-04"
+  },
+  {
+    "id": "news-05",
+    "title": "Simposium Sejarah & Budaya",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, eaque.",
+    "imageUrl": "/src/images/berita/3.jpg",
+    "href": "/berita/news-05"
+  },
+  {
+    "id": "news-06",
+    "title": "Program Edukasi untuk Keluarga",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, adipisci.",
+    "imageUrl": "/src/images/berita/4.jpg",
+    "href": "/berita/news-06"
+  },
+  {
+    "id": "news-07",
+    "title": "Residensi Seniman Lokal",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, saepe.",
+    "imageUrl": "/src/images/berita/5.png",
+    "href": "/berita/news-07"
   }
 ]

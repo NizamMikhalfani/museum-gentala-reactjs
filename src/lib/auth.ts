@@ -9,7 +9,7 @@ function getSecret(): string {
 }
 
 type Payload = {
-  sub: string;
+  email: string;
   exp: number; // epoch seconds
 };
 
@@ -31,9 +31,9 @@ async function hmacSha256(key: string, data: string): Promise<string> {
   return base64url(sig);
 }
 
-export async function signToken(sub: string, ttlSeconds = 60 * 60): Promise<string> {
+export async function signToken(email: string, ttlSeconds = 60 * 60): Promise<string> {
   const header = { alg: "HS256", typ: "JWT" };
-  const payload: Payload = { sub, exp: Math.floor(Date.now() / 1000) + ttlSeconds };
+  const payload: Payload = { email, exp: Math.floor(Date.now() / 1000) + ttlSeconds };
   const encHeader = base64url(JSON.stringify(header));
   const encPayload = base64url(JSON.stringify(payload));
   const data = `${encHeader}.${encPayload}`;
