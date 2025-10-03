@@ -9,16 +9,6 @@ type Artikel = {
 	href?: string;
 };
 
-// Map ids to private images under src/app/images
-import Affandi from "@/app/images/affandi-self-portrait.svg";
-import Banteng from "@/app/images/raden-saleh-banteng.svg";
-
-const imageById: Record<string, string> = {
-	"news-01": Affandi,
-	"news-02": Banteng,
-	"news-03": Banteng,
-};
-
 export function generateStaticParams(): { id: string }[] {
 	const items = (beritaData as unknown as Artikel[]).map((a) => ({ id: a.id }));
 	return items;
