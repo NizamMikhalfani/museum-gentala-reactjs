@@ -1,0 +1,145 @@
+/* Navbar3 Styles */
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  padding: 2rem;
+  background-color: #f5f5f5;
+}
+
+.navbar-3-page {
+  padding-top: 6rem;
+}
+
+.navbar-3 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  height: 4rem;
+}
+
+.navbar-3 img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.navbar-3-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar-3-menu a {
+  position: relative;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.navbar-3-menu a:hover {
+  color: #3498db;
+}
+
+.navbar-3-menu a.active {
+  color: #3498db;
+}
+
+.navbar-3-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, translate 0.3s ease;
+  min-width: 200px;
+  z-index: 100;
+}
+
+.navbar-3-dropdown.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.navbar-3-dropdown a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: #555;
+  font-weight: 400;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar-3-dropdown a:hover {
+  background-color: #f0f0f0;
+  color: #3498db;
+}
+
+.navbar-3-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #f5f5f5;
+  border-radius: 24px;
+  min-width: 200px;
+}
+
+.navbar-3-search input {
+  border: none;
+  background: transparent;
+  outline: none;
+  flex: 1;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.navbar-3-search input::placeholder {
+  color: #999;
+}
+
+.navbar-3-search .material-symbols-outlined {
+  font-size: 20px;
+  color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-3 {
+    padding: 1rem;
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .navbar-3-menu {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .navbar-3-search {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
