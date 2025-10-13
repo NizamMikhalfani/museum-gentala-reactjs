@@ -2,8 +2,12 @@
 import { useEffect, useMemo, useState, useRef } from "react";
 import Calendar from '@/components/Calendar';
 import UpcomingEvents from "@/components/UpcomingEvents";
+import VisitorBadge from "@/components/VisitorBadge";
 import Link from "next/link";
 import Image from "next/image";
+import { useState as useSidebarState } from "react";
+
+const navItems = ["Home", "Galeri", "Berita", "Tentang", "Kontak"];
 
 export default function Home() {
   // Simple carousel state
@@ -70,6 +74,9 @@ export default function Home() {
     };
   }, []);
 
+  // Sidebar state
+  const [isOpen, setIsOpen] = useSidebarState(false);
+
   return (
     <div className="font-sans">
   {/* Navbar is rendered from layout via NavShell */}
@@ -95,6 +102,11 @@ export default function Home() {
 
         {/* Foreground content */}
         <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
+          {/* Visitor Badge - Top Right */}
+          <div className="absolute top-6 right-6 z-20">
+            <VisitorBadge />
+          </div>
+
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white drop-shadow">
               Selamat Datang di Museum Menara Gentala Arasy
@@ -171,6 +183,29 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      {/* Sidebar Component */}
+      <aside className={`sidebar${isOpen ? " open" : ""}`}>
+        <div className="inner">
+          <header>
+            <button
+              type="button"
+              className="sidebar-burger"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              <span className="icon">{isOpen ? "close" : "menu"}</span>
+            </button>
+          </header>
+          <nav>
+            {navItems.map((item) => (
+              <button key={item} type="button">
+                <span className="icon">{item}</span>
+                <p>{item}</p>
+              </button>
+            ))}
+          </nav>
+        </div>
+      </aside>
     </div>
   );
 }

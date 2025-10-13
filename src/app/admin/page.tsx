@@ -21,7 +21,7 @@ async function getNewsStats() {
       total: news.length,
       latest: news.length > 0 ? new Date(news[news.length - 1].createdAt) : null,
     };
-  } catch (_error) {
+  } catch {
     // If the file doesn't exist or is empty, return default stats
     return {
       total: 0,

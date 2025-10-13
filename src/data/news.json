@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "id": "news-03",
+    "title": "Kolaborasi Seni Rupa & Musik",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quidem.",
+    "imageUrl": "/images/berita/1.jpg",
+    "href": "/berita/news-03"
+  },
+  {
+    "id": "news-04",
+    "title": "Pameran Fotografi Nusantara",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, molestias.",
+    "imageUrl": "/images/berita/2.jpg",
+    "href": "/berita/news-04"
+  },
+  {
+    "id": "news-05",
+    "title": "Simposium Sejarah & Budaya",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, eaque.",
+    "imageUrl": "/images/berita/3.jpg",
+    "href": "/berita/news-05"
+  },
+  {
+    "id": "news-06",
+    "title": "Program Edukasi untuk Keluarga",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, adipisci.",
+    "imageUrl": "/images/berita/4.jpg",
+    "href": "/berita/news-06"
+  },
+  {
+    "id": "news-07",
+    "title": "Residensi Seniman Lokal",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, saepe.",
+    "imageUrl": "/images/berita/5.png",
+    "href": "/berita/news-07"
+  }
+]

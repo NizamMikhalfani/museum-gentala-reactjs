@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import beritaData from "@/data/berita.json";
+import beritaData from "@/data/news.json";
 import beritaImages from "@/lib/beritaImages";
 
 type Artikel = {

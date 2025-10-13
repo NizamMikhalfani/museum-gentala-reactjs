@@ -14,13 +14,13 @@ type Artikel = {
 	// add more fields if needed
 };
 
-export function generateStaticParams(): { id: string }[] {
+export async function generateStaticParams(): Promise<{ id: string }[]> {
 	const items = (beritaData as unknown as Artikel[]).map((a) => ({ id: a.id }));
 	return items;
 }
 
-export default function BeritaDetail(props: unknown) {
-	const { params } = props as { params: { id: string } };
+export default async function BeritaDetail(props: { params: Promise<{ id: string }> }) {
+	const params = await props.params;
 	const { id } = params;
 	const articles = beritaData as unknown as Artikel[];
 	const artikel = articles.find((a) => a.id === id);
