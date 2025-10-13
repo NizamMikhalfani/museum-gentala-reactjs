@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import AppLayout from "@/components/AppLayout";
-import LoadingWrapper from "@/components/LoadingWrapper";
+import LoadingWrapper from "@/components/loadingwrapper";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Gerbang Gentala",
@@ -21,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
+      <body className="min-h-screen flex flex-col">
         <LoadingWrapper>
           <AppLayout>{children}</AppLayout>
         </LoadingWrapper>
