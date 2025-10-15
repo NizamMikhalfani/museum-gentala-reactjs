@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import AppLayout from "@/components/AppLayout";
-import LoadingWrapper from "@/components/loadingwrapper";
+import LoadingWrapper from "@/components/LoadingWrapper";
 import "./globals.css";
 
 export const metadata: Metadata = {
